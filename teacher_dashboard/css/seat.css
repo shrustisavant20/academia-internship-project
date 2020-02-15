@@ -1,0 +1,138 @@
+    .container1{
+        border: 1px solid black;
+        height: 550px;
+        width: 90%;
+        top: 0px;
+        position: relative;
+    }
+    .container1 .seat_map{
+        border: 0px solid rgba(67, 243, 126, 0.534);
+        width: 100%;
+        float: left;
+        position: relative;
+        overflow-y: auto;
+    }
+    .seat_map table{
+      height: 100%;
+      width: 100%;
+      position: relative;
+      float: left;
+      border: 0px solid red;
+      
+    }
+  
+  
+    .legend{
+      border: 0px solid black;
+      width: 5%;
+      height: 50%;
+      float: left;
+      text-align: center;
+      font-size: 15px;
+      font-weight: bolder;
+    }
+  
+  
+  
+  .container1 .notation{
+    background: rgba(185, 173, 173, 0.747);
+    top: 30%;
+    left: 90%;
+    width: 140px;
+    height: 25%;
+    border: 0px solid green;
+    position: fixed;
+    border-radius: 10px;
+    box-shadow: 5px 10px 12px #707070;
+    z-index: 1;
+  }
+  
+  .notation table{
+      height: 20%;
+  }
+  .notation .mybtn{
+    top: 60px;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+      
+  }
+.notation .mybtn input{
+    width: 100%;
+    border: 1px solid white;
+    box-shadow: 5px 10px 12px #3c7045;
+  }
+  .stage{
+      top: 70px;
+      border: 1px solid rgba(136, 54, 212, 0.808);
+      text-align: center;
+      position: fixed;
+      width: 50%;
+      left: 40%;
+      height: 80px;
+      z-index:1;
+  }
+  .stage img{
+      width: 100%;
+      height: 100%;
+      border-radius: 90px;
+      border: 3px solid;
+  }
+  
+    .toggle-button {
+      position: relative;
+    }
+    
+    .toggle-button input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+    }
+    
+    .toggle-button i{
+      width: 25px;
+      height: 25px;
+     /* background: #9cce5b; */
+     background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.5px solid grey;
+      border-radius: 10%;
+      transition: 0.1s;
+      font-size: 10px;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .toggle-button i:hover{
+      background-color: rgb(96, 88, 219);;
+    }
+    .toggle-button input[type="checkbox"]:checked ~ i {
+      background: rgb(96, 88, 219);
+      border: 1px solid white;
+      font-weight: 500;
+      color: #fff;
+    }
+    
+    .democlass{
+      background-color: grey;
+      width: 27px;
+      height: 27px;
+      border: 0.5px solid black;
+      font-size: 10px;
+      font-weight: bold;
+      color: #222;
+    }
+  
+  
+   .selected{
+      background: rgb(96, 88, 219);
+      border: 1px solid white;
+      font-weight: 500;
+      color: #fff;
+    }
+  

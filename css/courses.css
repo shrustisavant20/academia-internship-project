@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+  }
+  
+
+
+.search{
+    position: relative;
+    left: 30%;
+    top: 50px;
+    width: 40%;
+    border-radius: 5px solid black;
+    border: 0px solid green;
+}
+
+  /* Style the search field */
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    top: 10%;
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #48d494;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #2d6b10;
+  }
+  
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
