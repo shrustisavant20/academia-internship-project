@@ -34,22 +34,7 @@
             <th>Reject</th>
 
                   </thead>
-                  <tfoot>
-                    <tr>
-                     <th>CourseID</th>
-               <th>Cousre Title</th>
-                 <th>Course Description</th>
-                 <th>Start Date</th>
-             <th>End Date</th>
-               <th>Fees</th>
-        <th>Status</th>
-        <th>Accept</th>
-          <th>Reject</th>
-
-
-
-                    </tr>
-                  </tfoot>
+                  
           <tbody id="course">
             <?php
             include "connect.php";
