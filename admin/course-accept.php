@@ -1,11 +1,4 @@
-<?php
-    if(!(isset($_SESSION['username']))){
-      header('Location: login.php');
-    }else{
-        header('Location: index.php');
-    }
-?>
-  
+
 
 <?php
     include "connect.php";
@@ -40,22 +33,10 @@
                <th>End Date</th>
                 <th>Fees</th>
 		        <th>Status</th>
-		        <th>Button</th>
+		        <th>Reject</th>
 
                   </thead>
-                  <tfoot>
-                    <tr>
-                     <th>CourseID</th>
-               <th>Cousre Title</th>
-                 <th>Course Description</th>
-                 <th>Start Date</th>
-             <th>End Date</th>
-               <th>Fees</th>
-		    <th>Status</th>
-		        <th>Button</th>
-
-                    </tr>
-                  </tfoot>
+                 
                   <tbody id="course">
              <?php
 include "connect.php";
