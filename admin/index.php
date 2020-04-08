@@ -1,5 +1,12 @@
 <?php
+error_reporting(0);
+    session_start();
+    if(!isset($_SESSION['admin']) || $_SESSION['admin'] == ''){
+        echo "<script>Login First!!</script>";
+        header("Location: login.php");
+    }
     include "process.php";
+
  ?>
 
 <!DOCTYPE html>
@@ -148,7 +155,7 @@
 
             <div class="topbar-divider d-none d-sm-block"></div>
             <div style="margin:40px;">
-            <p style="display:inline-block; margin-top:20px;"><?php echo strtoupper($_SESSION['username']); ?></p> &nbsp; &nbsp;
+            <p style="display:inline-block; margin-top:20px;"><?php echo strtoupper($_SESSION['admin']); ?></p> &nbsp; &nbsp;
             <a class="btn btn-info" style="color:white;" data-toggle="modal" data-target="#logoutModal">
               Logout
             </a>
@@ -198,7 +205,7 @@
           <?php include "course.php"; ?>
 
 
-        <?php if($_SESSION['username'] == 'abc'): ?>
+        <?php if($_SESSION['admin'] == 'abc'): ?>
 
         <?php include "register.php"; ?>
 
