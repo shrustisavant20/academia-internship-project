@@ -1,3 +1,13 @@
+<?php
+error_reporting(0);
+session_start();
+if(!isset($_SESSION['admin']) || $_SESSION['admin'] == ''){
+        echo "<script>Login First!!</script>";
+        header("Location: login.php");
+    }   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

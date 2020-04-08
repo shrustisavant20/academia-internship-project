@@ -1,8 +1,14 @@
 
-
+   
 <?php
+error_reporting(0);
     include "connect.php";
     include "check.php";
+        
+    if(!isset($_SESSION['admin']) || $_SESSION['admin'] == ''){
+        echo "<script>Login First!!</script>";
+        header("Location: login.php");
+    }
 
 ?>
 <html>
@@ -33,10 +39,22 @@
                <th>End Date</th>
                 <th>Fees</th>
 		        <th>Status</th>
-		        <th>Accept</th>
+		        <th>Button</th>
 
                   </thead>
-                 
+                  <tfoot>
+                    <tr>
+                     <th>CourseID</th>
+               <th>Cousre Title</th>
+                 <th>Course Description</th>
+                 <th>Start Date</th>
+             <th>End Date</th>
+               <th>Fees</th>
+		    <th>Status</th>
+		        <th>Button</th>
+
+                    </tr>
+                  </tfoot>
                   <tbody id="course">
              <?php
 include "connect.php";
@@ -79,6 +97,15 @@ if ($result->num_rows > 0) {
             </div>
           </div>
 
- 
+ <?php
+
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        if($id==1){
+            echo "Hello";
+        }
+    }
+    ?>
 </body>
 </html>

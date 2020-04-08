@@ -1,6 +1,13 @@
+<?php
+error_reporting(0);
+include "check.php";
+if(!isset($_SESSION['admin']) || $_SESSION['admin'] == ''){
+        echo "<script>Login First!!</script>";
+        header("Location: login.php");
+    }
 
 
-
+?>
 <div class="container-fluid" id="main">
 <div class="card shadow mb-4">
             <div class="card-header py-3">

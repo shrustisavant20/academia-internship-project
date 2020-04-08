@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 include "connect.php";
 require_once 'check.php';
 
@@ -41,6 +41,7 @@ if(isset($_POST['submit'])){
 
   if($emailcount > 0){
     echo "<script>alert('Email already exists');</script>";
+    echo "<script>location.href='index.php'</script>";
   }else{
     if($pass == $cpass){
 
@@ -53,6 +54,7 @@ if(isset($_POST['submit'])){
       header("Location: index.php");
     }else{
       echo "<script>alert('Password doesn't match');</script>";
+      echo "<script>location.href='index.php'</script>";
     }
   }
 
