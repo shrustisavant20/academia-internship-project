@@ -1,543 +1,311 @@
+<?php
+error_reporting(0);
+    session_start();
+    if(!isset($_SESSION['admin']) || $_SESSION['admin'] == ''){
+        echo "<script>Login First!!</script>";
+        header("Location: login.php");
+    }
+    include "process.php";
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title> Academia &mdash; Website by LeaarningIT</title>
+
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Panel</title>
 
 
-  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="course.js" type="text/javascript"></script>
 
-  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <style>
+      .course{
+          border: none;
+          background-color: transparent;
+          margin: 0 0.5rem;
+          width: 92%;
+      }
 
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+      .course:hover{
+          background-color: #eaecf4;
 
-  <link rel="stylesheet" href="css/aos.css">
-  <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-
-  <link rel="stylesheet" href="css/style.css">
-
-
-
+      }
+    </style>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body id="page-top">
 
-<?php 
-include('includes/header.php');
-?>
+  <div id="wrapper">
 
-    
-    
-    <div class="hero-slide owl-carousel site-blocks-cover">
-      <div class="intro-section" style="background-image: url('images/hero_1.jpg');">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-              <h1>Academics University</h1>
-            </div>
-          </div>
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
         </div>
-      </div>
+        <div class="sidebar-brand-text mx-3"> Admin </div>
+      </a>
 
-      <div class="intro-section" style="background-image: url('images/hero_1.jpg');">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-              <h1>You Can Learn Anything</h1>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
 
-    </div>
-    
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
 
-    <div></div>
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center text-center">
-          <div class="col-lg-4 mb-5">
-            <h2 class="section-title-underline mb-5">
-              <span>Why Academics Works</span>
-            </h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-
-            <div class="feature-1 border">
-              <div class="icon-wrapper bg-primary">
-                <span class="flaticon-mortarboard text-white"></span>
-              </div>
-              <div class="feature-1-content">
-                <h2>Personalize Learning</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <div class="feature-1 border">
-              <div class="icon-wrapper bg-primary">
-                <span class="flaticon-school-material text-white"></span>
-              </div>
-              <div class="feature-1-content">
-                <h2>Trusted Courses</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
-              </div>
-            </div> 
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <div class="feature-1 border">
-              <div class="icon-wrapper bg-primary">
-                <span class="flaticon-library text-white"></span>
-              </div>
-              <div class="feature-1-content">
-                <h2>Tools for Students</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </div>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
 
-    <div class="site-section">
-      <div class="container">
+      <li class="nav-item">
+         <button style="border:none; background-color:transparent;" class="nav-link" onclick="coursefun('course-accept.php','main-content')">
+         <i class="fa fa-user" aria-hidden="true"></i>
+
+       <span>Accepted Courses</span>
+         </button>
+     </li>
+
+     <li class="nav-item">
+        <button style="border:none; background-color:transparent;" class="nav-link" onclick="coursefun('course-reject.php','main-content')">
+        <i class="fa fa-user" aria-hidden="true"></i>
+
+      <span>Rejected Courses</span>
+        </button>
+    </li>
+
+         <li class="nav-item">
+            <button style="border:none; background-color:transparent;" class="nav-link" onclick="coursefun('student.php','main-content')">
+            <i class="fa fa-user" aria-hidden="true"></i>
+
+          <span>Student Details</span>
+            </button>
+        </li>
+
+         <li class="nav-item">
+            <button style="border:none; background-color:transparent;" class="nav-link" onclick="coursefun('teacher.php','main-content')">
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
+          <span>Teacher Details</span>
+            </button>
+        </li>
 
 
-        <div class="row mb-5 justify-content-center text-center">
-          <div class="col-lg-6 mb-5">
-            <h2 class="section-title-underline mb-3">
-              <span>Popular Courses</span>
-            </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?</p>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-12">
-              <div class="owl-slide-3 owl-carousel">
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                      <a href="course-single.php"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                      <a href="course-single.php"><img src="images/course_2.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Web Design</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                      <a href="course-single.php"><img src="images/course_3.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Arithmetic</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="courses-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+    </ul>
+    <!-- End of Sidebar -->
 
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                        <a href="course-single.php"><img src="images/course_4.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                        <a href="course-single.php"><img src="images/course_5.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Web Design</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                        <a href="course-single.php"><img src="images/course_6.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-              </div>
-      
-          </div>
-        </div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-        
-        
-      </div>
-    </div>
+      <!-- Main Content -->
+      <div id="content">
 
-    
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
 
-    <div class="section-bg style-1" style="background-image: url('images/about_1.jpg');">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <h2 class="section-title-underline style-2">
-              <span>About Our University</span>
-            </h2>
-          </div>
-          <div class="col-lg-8">
-            <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem nesciunt quaerat ad reiciendis perferendis voluptate fugiat sunt fuga error totam.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus assumenda omnis tempora ullam alias amet eveniet voluptas, incidunt quasi aut officiis porro ad, expedita saepe necessitatibus rem debitis architecto dolore? Nam omnis sapiente placeat blanditiis voluptas dignissimos, itaque fugit a laudantium adipisci dolorem enim ipsum cum molestias? Quod quae molestias modi fugiat quisquam. Eligendi recusandae officiis debitis quas beatae aliquam?</p>
-            <p><a href="#">Read more</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
 
-    <!-- // 05 - Block -->
-  <div class="site-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-4">
-            <h2 class="section-title-underline">
-              <span>Testimonials</span>
-            </h2>
-          </div>
-        </div>
-
-
-        <div class="owl-slide owl-carousel">
-
-          <div class="ftco-testimonial-1">
-            <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3">
-              <div>
-                <h3>Allison Holmes</h3>
-                <span>Designer</span>
-              </div>
-            </div>
-            <div>
-              <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!&rdquo;</p>
-            </div>
-          </div>
-
-          <div class="ftco-testimonial-1">
-            <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
-              <div>
-                <h3>Allison Holmes</h3>
-                <span>Designer</span>
-              </div>
-            </div>
-            <div>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
-            </div>
-          </div>
-
-          <div class="ftco-testimonial-1">
-            <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-              <img src="images/person_4.jpg" alt="Image" class="img-fluid mr-3">
-              <div>
-                <h3>Allison Holmes</h3>
-                <span>Designer</span>
-              </div>
-            </div>
-            <div>
-              <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!&rdquo;</p>
-            </div>
-          </div>
-
-          <div class="ftco-testimonial-1">
-            <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-              <img src="images/person_3.jpg" alt="Image" class="img-fluid mr-3">
-              <div>
-                <h3>Allison Holmes</h3>
-                <span>Designer</span>
-              </div>
-            </div>
-            <div>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
-            </div>
-          </div>
-
-          <div class="ftco-testimonial-1">
-            <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
-              <div>
-                <h3>Allison Holmes</h3>
-                <span>Designer</span>
-              </div>
-            </div>
-            <div>
-              <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!&rdquo;</p>
-            </div>
-          </div>
-
-          <div class="ftco-testimonial-1">
-            <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-              <img src="images/person_4.jpg" alt="Image" class="img-fluid mr-3">
-              <div>
-                <h3>Allison Holmes</h3>
-                <span>Designer</span>
-              </div>
-            </div>
-            <div>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
-            </div>
-          </div>
-
-        </div>
-        
-      </div>
-    </div>
-    
-
-    <div class="section-bg style-1" style="background-image: url('images/hero_1.jpg');">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span class="icon flaticon-mortarboard"></span>
-            <h3>Our Philosphy</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span class="icon flaticon-school-material"></span>
-            <h3>Academics Principle</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea?
-              Dolore, amet reprehenderit.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span class="icon flaticon-library"></span>
-            <h3>Key of Success</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea?
-              Dolore, amet reprehenderit.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="news-updates">
-      <div class="container">
-         
-        <div class="row">
-          <div class="col-lg-9">
-             <div class="section-heading">
-              <h2 class="text-black">News &amp; Updates</h2>
-              <a href="#">Read All News</a>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="post-entry-big">
-                  <a href="news-single.php" class="img-link"><img src="images/blog_large_1.jpg" alt="Image" class="img-fluid"></a>
-                  <div class="post-content">
-                    <div class="post-meta"> 
-                      <a href="#">June 6, 2019</a>
-                      <span class="mx-1">/</span>
-                      <a href="#">Admission</a>, <a href="#">Updates</a>
-                    </div>
-                    <h3 class="post-heading"><a href="news-single.php">Campus Camping and Learning Session</a></h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="post-entry-big horizontal d-flex mb-4">
-                  <a href="news-single.php" class="img-link mr-4"><img src="images/blog_1.jpg" alt="Image" class="img-fluid"></a>
-                  <div class="post-content">
-                    <div class="post-meta">
-                      <a href="#">June 6, 2019</a>
-                      <span class="mx-1">/</span>
-                      <a href="#">Admission</a>, <a href="#">Updates</a>
-                    </div>
-                    <h3 class="post-heading"><a href="news-single.php">Campus Camping and Learning Session</a></h3>
-                  </div>
-                </div>
-
-                <div class="post-entry-big horizontal d-flex mb-4">
-                  <a href="news-single.php" class="img-link mr-4"><img src="images/blog_2.jpg" alt="Image" class="img-fluid"></a>
-                  <div class="post-content">
-                    <div class="post-meta">
-                      <a href="#">June 6, 2019</a>
-                      <span class="mx-1">/</span>
-                      <a href="#">Admission</a>, <a href="#">Updates</a>
-                    </div>
-                    <h3 class="post-heading"><a href="news-single.php">Campus Camping and Learning Session</a></h3>
-                  </div>
-                </div>
-
-                <div class="post-entry-big horizontal d-flex mb-4">
-                  <a href="news-single.php" class="img-link mr-4"><img src="images/blog_1.jpg" alt="Image" class="img-fluid"></a>
-                  <div class="post-content">
-                    <div class="post-meta">
-                      <a href="#">June 6, 2019</a>
-                      <span class="mx-1">/</span>
-                      <a href="#">Admission</a>, <a href="#">Updates</a>
-                    </div>
-                    <h3 class="post-heading"><a href="news-single.php">Campus Camping and Learning Session</a></h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="section-heading">
-              <h2 class="text-black">Campus Videos</h2>
-              <a href="#">View All Videos</a>
-            </div>
-            <a href="https://vimeo.com/45830194" class="video-1 mb-4" data-fancybox="" data-ratio="2">
-              <span class="play">
-                <span class="icon-play"></span>
-              </span>
-              <img src="images/course_5.jpg" alt="Image" class="img-fluid">
-            </a>
-            <a href="https://vimeo.com/45830194" class="video-1 mb-4" data-fancybox="" data-ratio="2">
-                <span class="play">
-                  <span class="icon-play"></span>
-                </span>
-                <img src="images/course_5.jpg" alt="Image" class="img-fluid">
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
               </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <div style="margin:40px;">
+            <p style="display:inline-block; margin-top:20px;"><?php echo strtoupper($_SESSION['admin']); ?></p> &nbsp; &nbsp;
+            <a class="btn btn-info" style="color:white;" data-toggle="modal" data-target="#logoutModal">
+              Logout
+            </a>
+          </div>
+
+
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+
+
+        <div id="main-content">
+
+
+                    <!-- Begin Page Content -->
+        <div class="container-fluid" id="">
+
+
+
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+          </div>
+
+          <?php
+            require_once 'process.php';
+          //  require_once "admin.php";
+           if(isset($_SESSION['message'])) : ?>
+
+
+               <div class="card shadow mb-4 alert alert-<?=$_SESSION['msg-type'] ?>">
+                 <?php
+                   echo $_SESSION['message'];
+                   unset($_SESSION['message']);
+                 ?>
+
+
+
+            </div>
+          <?php endif; ?>
+
+          <?php include "course.php"; ?>
+
+
+        <?php if($_SESSION['admin'] == 'abc'): ?>
+
+        <?php include "register.php"; ?>
+
+      <?php endif; ?>
+          <!-- Content Row -->
+          <div class="row" style="margin:20px auto;">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Courses Registered</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $i = countrows('courses');
+                      echo "$i"; ?></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Teachers Registered</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $i = countrows('teacher_user');
+                      echo "$i"; ?></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Students Registered</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php $i = countrows('student_user');
+                          echo "$i"; ?></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      <!-- Content Row -->
+        </div>
+        <!-- /.container-fluid -->
+        </div>
       </div>
+      <!-- End of Main Content -->
     </div>
-
-    <div class="site-section ftco-subscribe-1" style="background-image: url('images/bg_1.jpg')">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
-            <h2>Subscribe to us!</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,</p>
-          </div>
-          <div class="col-lg-5">
-            <form action="" class="d-flex">
-              <input type="text" class="rounded form-control mr-2 py-3" placeholder="Enter your email">
-              <button class="btn btn-primary rounded py-3 px-4" type="submit">Send</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> 
-
-
-    <?php
-      include('includes/footer.php')
-    ?>
-    
+    <!-- End of Content Wrapper -->
 
   </div>
-  <!-- .site-wrap -->
+  <!-- End of Page Wrapper -->
 
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-  <!-- loader -->
-  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
+ <?php include "includes/logoutmodal.php"; ?>
+ <?php include "includes/footer.php"; ?>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/jquery.mb.YTPlayer.min.js"></script>
+ <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
 
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
 
-  <script src="js/main.js"></script>
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
 
 </body>
 
